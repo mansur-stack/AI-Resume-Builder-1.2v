@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AI Resume Builder | Create Professional CV</title>
+  <meta name="description" content="Create a professional resume with AI-powered writing assistance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./images/image.png" type="image/x-icon">
+</head>
+<body>
+  <a class="skip-link" href="#builder">Skip to resume builder</a>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="AI Resume Builder home"><i class="fa-solid fa-file-lines"></i><span>AI Resume Builder</span></a>
+      <nav id="navMenu" class="nav-menu" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#builder">Create Resume</a>
+        <a href="#templates">Templates</a>
+        <a href="#features">Features</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to dark mode"><i class="fa-solid fa-moon"></i></button>
+        <a href="#builder" class="btn btn-primary nav-cta">Create Resume</a>
+        <button id="menuToggle" class="icon-btn menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Build a Professional Resume with AI</h1>
+          <p>Create a modern, professional resume in minutes with AI-powered writing assistance.</p>
+          <div class="hero-buttons">
+            <a href="#builder" class="btn btn-primary btn-lg">Create My Resume</a>
+            <a href="#templates" class="btn btn-ghost btn-lg">Explore Templates</a>
+          </div>
+          <ul class="hero-points">
+            <li><i class="fa-solid fa-check"></i> Live preview as you type</li>
+            <li><i class="fa-solid fa-check"></i> 4 templates, 5 accent colors</li>
+            <li><i class="fa-solid fa-check"></i> One-click PDF export</li>
+          </ul>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mock-resume">
+            <div class="mock-head"><span class="mock-avatar"></span><div><b></b><i></i></div></div>
+            <div class="mock-body">
+              <div class="mock-col"><span class="mock-h"></span><p></p><p></p><p class="short"></p><span class="mock-h"></span><p></p><p class="short"></p></div>
+              <div class="mock-col side"><span class="mock-h"></span><em></em><em></em><em></em></div>
+            </div>
+          </div>
+          <div class="mock-score"><i class="fa-solid fa-wand-magic-sparkles"></i> Resume Score <strong>92</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Templates ===== -->
+    <section id="templates" class="section">
+      <div class="container">
+        <h2 class="section-title">Pick a template</h2>
+        <p class="section-sub">Switch any time. Your content stays the same.</p>
+        <div class="tpl-grid" role="group" aria-label="Resume templates">
+          <button type="button" class="tpl-card" data-template="modern" aria-pressed="true">
+            <span class="tpl-thumb t-modern"><span class="tb-band"></span><span class="tb-cols"><span><i></i><i></i><i class="s"></i></span><span><i></i><i></i></span></span></span>
+            <strong>Modern</strong><small>Colored header, two columns</small>
+          </button>
+          <button type="button" class="tpl-card" data-template="professional" aria-pressed="false">
+            <span class="tpl-thumb t-professional"><span class="tb-center"></span><span class="tb-rule"></span><span class="tb-lines"><i></i><i></i><i class="s"></i><i></i></span></span>
+            <strong>Professional</strong><small>Classic serif, single column</small>
+          </button>
+          <button type="button" class="tpl-card" data-template="minimal" aria-pressed="false">
+            <span class="tpl-thumb t-minimal"><span class="tb-name"></span><span class="tb-lines"><i></i><i class="s"></i><i></i><i></i></span></span>
+            <strong>Minimal</strong><small>Light, spacious, no color blocks</small>
+          </button>
+          <button type="button" class="tpl-card" data-template="official" aria-pressed="false">
+            <span class="tpl-thumb t-official"><span class="to-top"><span class="to-t"><i></i><i class="s"></i></span><span class="to-photo"></span></span><span class="to-grid"><i></i><i></i><i></i><i></i></span><span class="to-tbl"></span></span>
+            <strong>Ma'lumotnoma</strong><small>Official Uzbek format (obyektivka)</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Builder ===== -->
+    <section id="builder" class="section builder">
+      <div class="container">
+        <div class="builder-bar">
+          <div>
+            <h2 class="section-title">Resume builder</h2>
+            <p class="section-sub">Fill in your details. The preview updates as you type.</p>
+          </div>
+          <div class="bar-actions">
+            <button type="button" id="demoBtn" class="btn btn-ghost"><i class="fa-solid fa-flask"></i> Load Demo Resume</button>
+            <button type="button" id="saveBtn" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Resume</button>
+            <button type="button" id="clearBtn" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Clear All</button>
+          </div>
+        </div>
+
+        <div class="builder-grid">
+          <!-- ---------- Editor ---------- -->
+          <div class="editor" id="editor">
+            <section class="card" aria-labelledby="h-personal">
+              <h3 id="h-personal">Personal Information</h3>
+              <div class="grid-2">
+                <div class="field"><label for="p-name">Full Name</label><input id="p-name" data-path="personal.name" data-validate type="text" placeholder="Mansur Nishonboyev" autocomplete="name"><span class="err" id="err-p-name" role="alert"></span></div>
+                <div class="field" data-only="cv"><label for="p-title">Professional Title</label><input id="p-title" data-path="personal.title" data-validate type="text" placeholder="Frontend Developer"><span class="err" id="err-p-title" role="alert"></span></div>
+                <div class="field" data-only="cv"><label for="p-email">Email</label><input id="p-email" data-path="personal.email" data-validate type="email" placeholder="example@gmail.com" autocomplete="email"><span class="err" id="err-p-email" role="alert"></span></div>
+                <div class="field" data-only="cv"><label for="p-phone">Phone</label><input id="p-phone" data-path="personal.phone" type="tel" placeholder="+998 90 000 00 00" autocomplete="tel"></div>
+                <div class="field" data-only="cv"><label for="p-location">Location</label><input id="p-location" data-path="personal.location" type="text" placeholder="Tashkent, Uzbekistan"></div>
+                <div class="field" data-only="cv"><label for="p-website">Website</label><input id="p-website" data-path="personal.website" type="text" placeholder="yourname.dev"></div>
+                <div class="field" data-only="cv"><label for="p-linkedin">LinkedIn</label><input id="p-linkedin" data-path="personal.linkedin" type="text" placeholder="linkedin.com/in/yourname"></div>
+                <div class="field" data-only="cv"><label for="p-github">GitHub</label><input id="p-github" data-path="personal.github" type="text" placeholder="github.com/yourname"></div>
+              </div>
+              <div class="field">
+                <label for="p-photo">Profile Photo</label>
+                <div class="photo-row">
+                  <input id="p-photo" type="file" accept="image/*">
+                  <button type="button" id="removePhoto" class="btn btn-ghost btn-sm">Remove photo</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="card" data-only="official" aria-labelledby="h-official" hidden>
+              <h3 id="h-official">Ma'lumotnoma ma'lumotlari</h3>
+              <div class="grid-2">
+                <div class="field"><label for="o-since">Lavozimga tayinlangan sana</label><input id="o-since" data-path="official.since" type="text" placeholder="2024-yil 18-sentyabrdan"></div>
+                <div class="field"><label for="o-position">Hozirgi lavozimi va ish joyi</label><textarea id="o-position" data-path="official.position" rows="3" placeholder="Vazirlik, tashkilot, bo'lim, lavozim"></textarea></div>
+                <div class="field"><label for="o-birthDate">Tug'ilgan yili</label><input id="o-birthDate" data-path="official.birthDate" type="text" placeholder="20.01.2000"></div>
+                <div class="field"><label for="o-birthPlace">Tug'ilgan joyi</label><input id="o-birthPlace" data-path="official.birthPlace" type="text" placeholder="Samarqand viloyati, Pastdarg'om tumani"></div>
+                <div class="field"><label for="o-nationality">Millati</label><input id="o-nationality" data-path="official.nationality" type="text" placeholder="o'zbek"></div>
+                <div class="field"><label for="o-party">Partiyaviyligi</label><input id="o-party" data-path="official.party" type="text" placeholder="yo'q"></div>
+                <div class="field"><label for="o-education">Ma'lumoti</label><input id="o-education" data-path="official.education" type="text" placeholder="Oliy"></div>
+                <div class="field"><label for="o-graduated">Tamomlagan (har qatorga bittadan)</label><textarea id="o-graduated" data-path="official.graduated" rows="3" placeholder="2021-y. Akademik litsey&#10;2025-y. Universitet"></textarea></div>
+                <div class="field wide"><label for="o-specialty">Ma'lumoti bo'yicha mutaxassisligi (har qatorga bittadan)</label><textarea id="o-specialty" data-path="official.specialty" rows="2"></textarea></div>
+                <div class="field"><label for="o-degree">Ilmiy darajasi</label><input id="o-degree" data-path="official.degree" type="text" placeholder="yo'q"></div>
+                <div class="field"><label for="o-title">Ilmiy unvoni</label><input id="o-title" data-path="official.title" type="text" placeholder="yo'q"></div>
+                <div class="field"><label for="o-languages">Qaysi chet tillarini biladi</label><input id="o-languages" data-path="official.languages" type="text" placeholder="rus, ingliz tillari"></div>
+                <div class="field"><label for="o-military">Harbiy (maxsus) unvoni</label><input id="o-military" data-path="official.military" type="text" placeholder="yo'q"></div>
+                <div class="field wide"><label for="o-awards">Davlat mukofotlari bilan taqdirlanganmi (qanaqa)</label><input id="o-awards" data-path="official.awards" type="text" placeholder="yo'q"></div>
+                <div class="field wide"><label for="o-deputy">Xalq deputatlari Kengashi deputatimi yoki boshqa saylanadigan organlarning a'zosimi</label><input id="o-deputy" data-path="official.deputy" type="text" placeholder="yo'q"></div>
+                <div class="field wide"><label for="o-work">Mehnat faoliyati (har qatorga bittadan)</label><textarea id="o-work" data-path="official.work" rows="6" placeholder="2019-2021 yy. – Akademik litsey o'quvchisi&#10;2021-2025 yy. – Universitet talabasi"></textarea></div>
+              </div>
+            </section>
+
+            <section class="card" data-only="official" aria-labelledby="h-rel" hidden>
+              <div class="card-head"><h3 id="h-rel">Yaqin qarindoshlari haqida ma'lumot</h3><button type="button" class="btn btn-ghost btn-sm" data-add="relatives">+ Add Relative</button></div>
+              <div id="list-relatives" class="list"></div>
+            </section>
+
+            <section class="card" data-only="cv" aria-labelledby="h-summary">
+              <div class="card-head">
+                <h3 id="h-summary">Professional Summary</h3>
+                <button type="button" class="btn btn-ai" data-ai="summary">✨ Improve with AI</button>
+              </div>
+              <div class="field"><label for="summary" class="sr-only">Professional Summary</label>
+                <textarea id="summary" data-path="summary" rows="4" placeholder="I am a frontend developer."></textarea></div>
+            </section>
+
+            <section class="card" data-only="cv" aria-labelledby="h-edu">
+              <div class="card-head"><h3 id="h-edu">Education</h3><button type="button" class="btn btn-ghost btn-sm" data-add="education">+ Add Education</button></div>
+              <div id="list-education" class="list"></div>
+            </section>
+
+            <section class="card" data-only="cv" aria-labelledby="h-exp">
+              <div class="card-head"><h3 id="h-exp">Work Experience</h3><button type="button" class="btn btn-ghost btn-sm" data-add="experience">+ Add Experience</button></div>
+              <div id="list-experience" class="list"></div>
+            </section>
+
+            <section class="card" data-only="cv" aria-labelledby="h-skills">
+              <h3 id="h-skills">Skills</h3>
+              <div class="field">
+                <label for="skillInput">Type a skill and press Enter</label>
+                <div class="skill-input-row">
+                  <input id="skillInput" type="text" placeholder="e.g. JavaScript">
+                  <button type="button" id="addSkillBtn" class="btn btn-ghost">Add</button>
+                </div>
+              </div>
+              <div id="skillList" class="chips" aria-live="polite"></div>
+            </section>
+
+            <section class="card" data-only="cv" aria-labelledby="h-proj">
+              <div class="card-head"><h3 id="h-proj">Projects</h3><button type="button" class="btn btn-ghost btn-sm" data-add="projects">+ Add Project</button></div>
+              <div id="list-projects" class="list"></div>
+            </section>
+
+            <section class="card" data-only="cv" aria-labelledby="h-lang">
+              <div class="card-head"><h3 id="h-lang">Languages</h3><button type="button" class="btn btn-ghost btn-sm" data-add="languages">+ Add Language</button></div>
+              <div id="list-languages" class="list"></div>
+            </section>
+          </div>
+
+          <!-- ---------- Preview column ---------- -->
+          <aside class="preview-col" aria-label="Resume preview">
+            <div class="card score-card">
+              <div class="score-top"><h3>Resume Score</h3><strong id="scoreText">0 / 100</strong></div>
+              <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="scoreBar"><span id="scoreFill"></span></div>
+              <ul id="scoreList" class="score-list"></ul>
+            </div>
+
+            <div class="card custom-card">
+              <h3>Customize</h3>
+              <div class="custom-grid">
+                <div class="field"><label for="c-template">Template</label>
+                  <select id="c-template"><option value="modern">Modern</option><option value="professional">Professional</option><option value="minimal">Minimal</option><option value="official">Ma'lumotnoma (Official)</option></select></div>
+                <div class="field"><label for="c-font">Font family</label>
+                  <select id="c-font">
+                    <option value="'Inter', sans-serif">Inter</option>
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                    <option value="'Poppins', sans-serif">Poppins</option>
+                    <option value="'Merriweather', serif">Merriweather</option>
+                  </select></div>
+                <div class="field"><label for="c-size">Font size <output id="c-size-out">14</output>px</label>
+                  <input id="c-size" type="range" min="11" max="17" step="1" value="14"></div>
+                <div class="field"><label for="c-space">Spacing <output id="c-space-out">1.0</output>×</label>
+                  <input id="c-space" type="range" min="0.7" max="1.6" step="0.1" value="1"></div>
+              </div>
+              <div class="field"><span class="label-like" id="accentLabel">Accent color</span>
+                <div class="swatches" role="radiogroup" aria-labelledby="accentLabel">
+                  <button type="button" class="swatch" role="radio" data-accent="blue" aria-label="Blue" style="--c:#2563eb"></button>
+                  <button type="button" class="swatch" role="radio" data-accent="purple" aria-label="Purple" style="--c:#7c3aed"></button>
+                  <button type="button" class="swatch" role="radio" data-accent="green" aria-label="Green" style="--c:#059669"></button>
+                  <button type="button" class="swatch" role="radio" data-accent="red" aria-label="Red" style="--c:#dc2626"></button>
+                  <button type="button" class="swatch" role="radio" data-accent="black" aria-label="Black" style="--c:#111827"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-head">
+              <h3>Live Preview</h3>
+              <button type="button" id="pdfBtn" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download PDF</button>
+            </div>
+            <div class="preview-wrap">
+              <div id="emptyState" class="empty-state">
+                <i class="fa-regular fa-file-lines"></i>
+                <p><strong>Your resume preview will appear here.</strong><br>Start filling out your information.</p>
+              </div>
+              <article id="resume" class="tpl-modern" aria-live="polite"></article>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Everything you need to get hired</h2>
+        <p class="section-sub">Built for speed, privacy and clean results.</p>
+        <div class="feat-grid">
+          <div class="feat"><i class="fa-solid fa-bolt"></i><h3>Real-time preview</h3><p>Every keystroke updates your resume instantly.</p></div>
+          <div class="feat"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>AI writing help</h3><p>Turn rough notes into polished summaries and bullet points.</p></div>
+          <div class="feat"><i class="fa-solid fa-palette"></i><h3>Templates and styling</h3><p>Four layouts, four fonts, five accent colors.</p></div>
+          <div class="feat"><i class="fa-solid fa-chart-simple"></i><h3>Resume score</h3><p>See which sections still need work.</p></div>
+          <div class="feat"><i class="fa-solid fa-file-pdf"></i><h3>PDF export</h3><p>Save a print-ready PDF in one click.</p></div>
+          <div class="feat"><i class="fa-solid fa-lock"></i><h3>Stays on your device</h3><p>Your data is saved in your browser only.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section cta">
+      <div class="container">
+        <h2>My Telegram Channel</h2>
+        <a href="https://t.me/IT_Impulse_code" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram"></i> Join My Telegram Channel</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><p>© <span id="year"></span> AI Resume Builder. Built with HTML, CSS and JavaScript.</p></div></footer>
+
+  <!-- ===== AI Assistant ===== -->
+  <button id="aiFab" class="ai-fab" type="button" aria-expanded="false" aria-controls="aiPanel">🤖 AI Assistant</button>
+  <section id="aiPanel" class="ai-panel" aria-label="AI Assistant" hidden>
+    <div class="ai-head"><strong>AI Assistant</strong><button type="button" id="aiClose" class="icon-btn light" aria-label="Close assistant"><i class="fa-solid fa-xmark"></i></button></div>
+    <div id="aiMessages" class="ai-messages" aria-live="polite"></div>
+    <div class="ai-quick">
+      <button type="button" data-q="summary">Improve my summary</button>
+      <button type="button" data-q="experience">Improve my experience</button>
+      <button type="button" data-q="skills">Suggest skills</button>
+      <button type="button" data-q="check">Check my resume</button>
+    </div>
+    <form id="aiForm" class="ai-form" autocomplete="off">
+      <label for="aiInput" class="sr-only">Ask the assistant</label>
+      <input id="aiInput" type="text" placeholder="Ask about your resume...">
+      <button class="btn btn-primary btn-sm" type="submit" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </section>
+
+  <!-- ===== Confirm modal ===== -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText">
+      <h3 id="modalTitle">Clear all data?</h3>
+      <p id="modalText">This removes everything you entered, including the saved copy in this browser. This cannot be undone.</p>
+      <div class="modal-actions">
+        <button type="button" id="modalCancel" class="btn btn-ghost">Cancel</button>
+        <button type="button" id="modalConfirm" class="btn btn-danger">Clear all</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
